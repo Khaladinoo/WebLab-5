@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import ProductList from "./components/ProductList";
+import ProductList from "./vite-project/src/components/ProductList";
 
 function App() {
     const [showProducts, setShowProducts] = useState(true);
