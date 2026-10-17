@@ -5,3 +5,8 @@ body {
     color: #333333;
     fornt-family: Arial, sans-serif;
 }
+button {
+    font-size: 14px;
+    font-weight: bold;
+    transition: opacity 0.2s ease-in-out;
+}
