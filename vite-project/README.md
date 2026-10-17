@@ -1,16 +1,27 @@
-# React + Vite
+# React Simple Product Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean and interactive React application built using Vite as the build tool. This project demonstrates core React mental model principles including functional components, props passing, state management via `useState`, controlled components, conditional rendering, and component composition using the `children` prop.
 
-Currently, two official plugins are available:
+# Challenges Faced & Key Learnings
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Controlled Inputs & Dynamic Feedback: Ensuring the input field updates state on every keystroke (onChange) while gracefully falling back to a default "Guest" greeting when empty.
 
-## React Compiler
+Decoupled Layout Composition: Implementing a generic <Card> component with the children prop to maintain strict separation between visual card styling and data rendering logic.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Directory Path Precision: Resolving Vite local server pathings during project scaffolding to ensure assets and components load reliably under the src/ directory structure.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Project Structure & File Organization
+
+The application follows a modular and clean component structure inside the `src/` directory:
+
+```text
+src/
+ ├── components/
+ │    ├── Card.jsx        # Wrapper layout component using children composition
+ │    ├── Product.jsx     # Reusable presenter displaying title and price
+ │    └── ProductList.jsx # Maps static product array with stable key props
+ ├── App.jsx              # Root component managing application states
+ ├── main.jsx             # React DOM root entry point
+ └── index.css            # Global base layout styles
