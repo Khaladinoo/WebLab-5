@@ -13,5 +13,6 @@ function Product({ title, price }) {
                 Price: ${price}
             </p>
         </Card>
-    )
+    );
 }
+export default Product;
