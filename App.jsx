@@ -19,6 +19,9 @@ function App() {
                     style={{ padding: '10px', width: '100%', boxSizing: 'border-box', borderRadius: '4px', border: '1px solid #ccc' }}
                 />
                 </div>
+                <p style={{ fontSize: '18px', color: '#333' }}>
+                Welcome, {name.trim() !== '' ? name : 'Guest'}!
+            </p>
         </div>
     )
 }
