@@ -10,3 +10,6 @@ button {
     font-weight: bold;
     transition: opacity 0.2s ease-in-out;
 }
+button:hover {
+    opacity: 0.9;
+}
