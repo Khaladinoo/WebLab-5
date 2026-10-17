@@ -8,5 +8,7 @@ function Card({children}) {
         backgroundColor: '#ffffff',
         boxShadow: '0 2px 5px rgba(0, 0, 0, 0.05)'
     };
-    
+    return(
+
+    );
 }
