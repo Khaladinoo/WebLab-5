@@ -36,6 +36,7 @@ function App() {
             >
                 {showProducts ? 'Hide Products' : 'Show Products'}
             </button>
+            {showProducts && <ProductList />}
         </div>
     )
 }
