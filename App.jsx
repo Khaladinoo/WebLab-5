@@ -22,6 +22,20 @@ function App() {
                 <p style={{ fontSize: '18px', color: '#333' }}>
                 Welcome, {name.trim() !== '' ? name : 'Guest'}!
             </p>
+            <button 
+                onClick={() => setShowProducts(!showProducts)}
+                style={{ 
+                    padding: '10px 16px', 
+                    cursor: 'pointer', 
+                    marginBottom: '20px',
+                    backgroundColor: showProducts ? '#dc3545' : '#28a745',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '4px'
+                }}
+            >
+                {showProducts ? 'Hide Products' : 'Show Products'}
+            </button>
         </div>
     )
 }
