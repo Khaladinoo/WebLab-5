@@ -1,122 +1,65 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import ProductList from './components/ProductList';
 
+/**
+ * App Component (Root)
+ * 
+ * Why we wrote this code:
+ * 1. Manages top-level application states using the 'useState' React hook.
+ * 2. Implements the Controlled Component pattern for the text input field.
+ * 3. Demonstrates Conditional Rendering ({showProducts && <ProductList />}) to show/hide UI sections dynamically.
+ * 4. Ensures strict compliance with assignment constraints: No manual DOM manipulation, no useEffect, no external libraries.
+ */
 function App() {
-  const [count, setCount] = useState(0)
+    // State 1: Boolean flag controlling the visibility toggle of ProductList
+    const [showProducts, setShowProducts] = useState(true);
+    
+    // State 2: String storing user input dynamically
+    const [name, setName] = useState('');
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    return (
+        <div style={{ maxWidth: '600px', margin: '40px auto', fontFamily: 'Arial, sans-serif', padding: '0 20px' }}>
+            <h1>React Product Dashboard</h1>
 
-      <div className="ticks"></div>
+            {/* Controlled Input Section */}
+            <div style={{ marginBottom: '20px' }}>
+                <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
+                    User Name:
+                </label>
+                <input 
+                    type="text" 
+                    value={name} 
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter your name"
+                    style={{ padding: '10px', width: '100%', boxSizing: 'border-box', borderRadius: '4px', border: '1px solid #ccc' }}
+                />
+            </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+            {/* Dynamic Greeting Message */}
+            <p style={{ fontSize: '18px', color: '#333' }}>
+                Welcome, {name.trim() !== '' ? name : 'Guest'}!
+            </p>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+            {/* Toggle Button */}
+            <button 
+                onClick={() => setShowProducts(!showProducts)}
+                style={{ 
+                    padding: '10px 16px', 
+                    cursor: 'pointer', 
+                    marginBottom: '20px',
+                    backgroundColor: showProducts ? '#dc3545' : '#28a745',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '4px'
+                }}
+            >
+                {showProducts ? 'Hide Products' : 'Show Products'}
+            </button>
+
+            {/* Conditional Rendering */}
+            {showProducts && <ProductList />}
+        </div>
+    );
 }
 
-export default App
+export default App;
