@@ -12,6 +12,13 @@ function ProductList() {
             <h2 style={{ borderBottom: '2px solid #007bff', paddingBottom: '8px' }}>
                 Product Catalog
             </h2>
+            {products.map(product => (
+                <Product 
+                    key={product.id} 
+                    title={product.title} 
+                    price={product.price} 
+                />
+            ))}
         </div>
     );
 }
