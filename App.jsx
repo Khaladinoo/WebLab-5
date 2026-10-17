@@ -3,5 +3,5 @@ import ProductList from "./components/ProductList";
 
 function App() {
     const [showProducts, setShowProducts] = useState(true);
-    
+    const [name, setName] = useState('');
 }
