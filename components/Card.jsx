@@ -9,7 +9,7 @@ function Card({children}) {
         boxShadow: '0 2px 5px rgba(0, 0, 0, 0.05)'
     };
     return(
-<div style={cardStyle}>
+        <div style={cardStyle}>
             {children}
         </div>
     );
