@@ -5,7 +5,7 @@ function App() {
     const [showProducts, setShowProducts] = useState(true);
     const [name, setName] = useState('');
     return (
-        <div style={{maxWidth: '600px', margin: '40px auto', frontFamily: 'Arial, sans-serif', padding: '0 20px'}}>
+        <div style={{maxWidth: '600px', margin: '40px auto', fontFamily: 'Arial, sans-serif', padding: '0 20px'}}>
             <h1>React Product Dashboard</h1>
             <div style={{ marginBottom: '20px' }}>
                 <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
@@ -39,3 +39,4 @@ function App() {
         </div>
     )
 }
+export default App;
